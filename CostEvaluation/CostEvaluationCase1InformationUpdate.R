@@ -120,10 +120,10 @@ print("=== for dynamic programming: Testing Time, Total Cost, A, M, R ===")
 dp.t3=44.8900     # the value got from DP program in advance
 dp.c3=Cv3T3(dp.t3)
 m3A3=Av(m3A2,m3M2,m3R2,a3,p3,b3,q3,dp.t3)
-m3A3=Mv(m3A2,m3M2,m3R2,a3,p3,b3,q3,dp.t3)
-m3A3=Rv(m3A2,m3M2,m3R2,a3,p3,b3,q3,dp.t3)
+m3M3=Mv(m3A2,m3M2,m3R2,a3,p3,b3,q3,dp.t3)
+m3R3=Rv(m3A2,m3M2,m3R2,a3,p3,b3,q3,dp.t3)
 m3RC3=c34*Bv(m3A2,m3M2,m3R2,a3,p3,b3,q3,dp.t3)     #risk cost
-sprintf("A3= %f ; M3= %f ; R3= %f " , m1A3, m1M3, m1R3)
+sprintf("A3= %f ; M3= %f ; R3= %f " , m3A3, m3M3, m3R3)
 sprintf("Optimal testing time = %f ; Optimal testing cost = %f ; Risk Cost = %f" , dp.t3, dp.c3, m3RC3)
 
 #draw M, R, A for version 3
