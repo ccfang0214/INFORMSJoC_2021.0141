@@ -32,17 +32,20 @@ a1=29
 p1=0.4568
 b1=0.0507
 q1=0.6861
+sCv1=50000
+sCv2=38000
+sCv3=20000
 
-C1=function(t1)
+Cv1=function(t1)
 {
-  c11*t1+c12*M(a1,p1,b1,q1,t1)+c13*R(a1,p1,b1,q1,t1)+c14*B(a1,p1,b1,q1,t1)
+  ifelse(t1>0,c11*t1+c12*M(a1,p1,b1,q1,t1)+c13*R(a1,p1,b1,q1,t1)+c14*B(a1,p1,b1,q1,t1),sCv1)
 }
 
 print("### Version 1 ###")
 #for DP
 print("=== for DP solution: Testing Time, Total Cost, A, M, R ")
 dp.t1=92.1281
-dp.c1=C1(dp.t1)
+dp.c1=Cv1(dp.t1)
 m3A1=A(a1,p1,b1,q1,dp.t1)
 m3M1=M(a1,p1,b1,q1,dp.t1)
 m3R1=R(a1,p1,b1,q1,dp.t1)
@@ -68,8 +71,9 @@ q2=0.301
 
 Cv2=function(VA1,VM1,VR1,tv)
 {
-  c21*tv+c22*(Mv(VA1,VM1,VR1,a2,p2,b2,q2,tv)-VM1)  +c23*(Rv(VA1,VM1,VR1,a2,p2,b2,q2,tv)-VR1) +c24*Bv(VA1,VM1,VR1,a2,p2,b2,q2,tv)
+  ifelse(tv>0,c21*tv+c22*(Mv(VA1,VM1,VR1,a2,p2,b2,q2,tv)-VM1)  +c23*(Rv(VA1,VM1,VR1,a2,p2,b2,q2,tv)-VR1) +c24*Bv(VA1,VM1,VR1,a2,p2,b2,q2,tv),sCv2)
 }
+
 Cv2T1=function(tv)
 { Cv2(m1A1,m1M1,m1R1,tv) }
 Cv2T3=function(tv)
@@ -107,8 +111,9 @@ q3=0.4791
 
 Cv3=function(VA1,VM1,VR1,tv)
 {
-  c31*tv+c32*(Mv(VA1,VM1,VR1,a3,p3,b3,q3,tv)-VM1)+c33*(Rv(VA1,VM1,VR1,a3,p3,b3,q3,tv)-VR1)+c34*Bv(VA1,VM1,VR1,a3,p3,b3,q3,tv)
+  ifelse(tv>0,c31*tv+c32*(Mv(VA1,VM1,VR1,a3,p3,b3,q3,tv)-VM1)+c33*(Rv(VA1,VM1,VR1,a3,p3,b3,q3,tv)-VR1)+c34*Bv(VA1,VM1,VR1,a3,p3,b3,q3,tv),sCv3)
 }
+
 Cv3T1=function(tv)
 { Cv3(m1A2,m1M2,m1R2,tv) }
 Cv3T3=function(tv)
