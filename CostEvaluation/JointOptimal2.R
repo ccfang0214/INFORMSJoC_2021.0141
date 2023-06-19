@@ -70,7 +70,7 @@ CostV3=function(pars)
   t2=pars[2]
   t3=pars[3]  
   
-  Cv1(t1)+Cv2(A(a1,p1,b1,q1,t1),M(a1,p1,b1,q1,t1),R(a1,p1,b1,q1,t1),t2)+Cv3(Av(A(a1,p1,b1,q1,t1),M(a1,p1,b1,q1,t1),R(a1,p1,b1,q1,t1),a2,p2,b2,q2,t2),Mv(A(a1,p1,b1,q1,t1),M(a1,p1,b1,q1,t1),R(a1,p1,b1,q1,t1),a2,p2,b2,q2,t2),Rv(A(a1,p1,b1,q1,t1),M(a1,p1,b1,q1,t1),R(a1,p1,b1,q1,t1),a2,p2,b2,q2,t2),t3)
+  Cv3(Av(A(a1,p1,b1,q1,t1),M(a1,p1,b1,q1,t1),R(a1,p1,b1,q1,t1),a2,p2,b2,q2,t2),Mv(A(a1,p1,b1,q1,t1),M(a1,p1,b1,q1,t1),R(a1,p1,b1,q1,t1),a2,p2,b2,q2,t2),Rv(A(a1,p1,b1,q1,t1),M(a1,p1,b1,q1,t1),R(a1,p1,b1,q1,t1),a2,p2,b2,q2,t2),t3)  +Cv2(A(a1,p1,b1,q1,t1),M(a1,p1,b1,q1,t1),R(a1,p1,b1,q1,t1),t2)+Cv1(t1)
 }
 
 res<-optim(par=c(20,20,20),CostV3,lower=c(0,0,0), upper=c(300,300,300),method="L-BFGS-B")
